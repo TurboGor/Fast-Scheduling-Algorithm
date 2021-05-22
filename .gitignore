@@ -1,8 +1,14 @@
 # Compiled class file
 *.class
 
+# Downloaded XML config files
+*.xml
+
 # Log file
 *.log
+
+# bin
+/bin/
 
 # BlueJ files
 *.ctxt
