@@ -3,12 +3,10 @@
 Comp3100 Stage 2 Assignment
 
 ## How to run Stage2
-Step1: Navigate to the `src` folder
-Step2: Open a terminal inside the `src` folder
-Step3: Ensure test_results has correct permissions
-`sudo chmod u+rwx test_results`
-Step4: Start the test file executable
-`./test_results "java Client" -o co -c configs/`
+1. Navigate to the `src` folder
+2. Open a terminal inside the `src` folder
+3. Ensure test_results has correct permissions with command: `sudo chmod u+rwx test_results`
+4. Start the test file executablewith command: `./test_results "java Client" -o co -c configs/`
 
 ---
 
