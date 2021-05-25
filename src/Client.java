@@ -160,16 +160,8 @@ public class Client {
 
 		for (Server s: servers){
 			// find capable server for job
-			if (s.getState().equals("2")) {
-				if (s.getDisk() >= job.get(0).getDiskReq() && s.getCores() >= job.get(0).getCoreReq() && s.getMemory() >= job.get(0).getMemoryReq()){
 					info = s.getType() + " " + s.getID();
 					return SCHD + " " + job.get(0).getID() + " " + info;
-				} 
-				else {
-					// get first server
-					info = servers.get(0).getType() + " " + servers.get(0).getID();
-				}
-			}
 		}
 		// send first server
 		return SCHD + " " + job.get(0).getID() + " " + info;
