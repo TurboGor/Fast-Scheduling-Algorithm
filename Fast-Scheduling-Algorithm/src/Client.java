@@ -159,14 +159,12 @@ public class Client {
 		// Server information string
 		String info = "";
 
-		int reqMultiplier = 2;
-
 		for (Server s: servers) {
 
 			// find best fit for job
-			if (s.getDisk() >= job.get(0).getDiskReq()/reqMultiplier &&
-			s.getCores() >= job.get(0).getCoreReq()/reqMultiplier &&
-				s.getMemory() >= job.get(0).getMemoryReq()/reqMultiplier) {
+			if (s.getDisk() >= job.get(0).getDiskReq() &&
+			s.getCores() >= job.get(0).getCoreReq() &&
+			s.getMemory() >= job.get(0).getMemoryReq()) {
 					info = s.getType() + " " + s.getID();
 					return SCHD + " " + job.get(0).getID() + " " + info;
 				}
