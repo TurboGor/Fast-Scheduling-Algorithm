@@ -6,7 +6,7 @@ Comp3100 Stage 2 Assignment
 1. Navigate to the `src` folder
 2. Open a terminal inside the `src` folder
 3. Ensure test_results has correct permissions with command: `sudo chmod u+rwx test_results`
-4. Start the test file executable with command: `./test_results "java Client" -o tt -c configs/`
+4. Start the test file executable with command: `./test_results "java Client" -o tt -c configs/other`
 
 ---
 
