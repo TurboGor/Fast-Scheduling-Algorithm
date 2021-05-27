@@ -58,12 +58,12 @@ public class Client {
 	private static void connect(String address, int port) {
 		// try connect to server
 			try {
-				System.out.println("Connecting to server: " + address + ":" + port);
+				//System.out.println("Connecting to server: " + address + ":" + port);
 				soc = new Socket(address, port);
-				System.out.println("Connected.");
+				//System.out.println("Connected.");
 			} catch (IOException e) {
-				System.out.println(e.getMessage());
-				System.out.println("Failed to conect to server");
+				//System.out.println(e.getMessage());
+				//System.out.println("Failed to conect to server");
 			}
 	}
 
@@ -147,7 +147,7 @@ public class Client {
 			}
 				
 		} catch (IOException i) {
-			System.out.println(i);
+			//System.out.println(i);
 		}
 
 		// Exit the program
@@ -156,15 +156,27 @@ public class Client {
 
 	public String fast(ArrayList<Server> servers, ArrayList<Job> job){
 
+		// Server information string
 		String info = "";
 
-		for (Server s: servers){
-			// find capable server for job
+		for (Server s: servers) {
+
+			// find best fit for job
+			if (s.getDisk() >= job.get(0).getDiskReq() &&
+				s.getCores() >= job.get(0).getCoreReq() &&
+				s.getMemory() >= job.get(0).getMemoryReq()) {
+					// Just find the server that meets the requirements
+					// This is the fastest method
 					info = s.getType() + " " + s.getID();
 					return SCHD + " " + job.get(0).getID() + " " + info;
-		}
-		// send first server
-		return SCHD + " " + job.get(0).getID() + " " + info;
+			}
+			else {
+				// Send job to first server
+				info = servers.get(0).getType() + " " + servers.get(0).getID();
+			}
+	}
+	// There is only one job in queue so schedule it
+	return SCHD + " " + job.get(0).getID() + " " + info;
 	}
 
 	// takes server input and creates arrayList of CAPABLE SERVER OBJECTS
